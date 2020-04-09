@@ -23,6 +23,7 @@ const Parks = props => {
 
   return (
     <div>
+      <h3>All U.S. National Parks:</h3>
       <p>{parks.name}</p>
       <p>{parks.location}</p>
     </div>
