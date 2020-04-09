@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://aqueous-atoll-85096.herokuapp.com',
+  production: 'https://prm-interview.s3.amazonaws.com/parks.json',
   development: 'http://localhost:4741'
 }
 
