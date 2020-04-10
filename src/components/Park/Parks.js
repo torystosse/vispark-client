@@ -10,8 +10,8 @@ const Parks = props => {
       url: 'https://prm-interview.s3.amazonaws.com/parks.json',
       method: 'GET'
     })
+      // .then(res => console.log(res.data))
       .then(res => setParks(res.data))
-      .then(res => console.log(res))
       .catch(() => {
         props.alert({
           heading: 'Aw man!',
@@ -21,11 +21,33 @@ const Parks = props => {
       })
   }, [])
 
+  // const parksObject = parks
+  // console.log('parksObject', parksObject)
+
+  // note, all fields must be CAPITALIZED bc are caps in db
+
+  let parksJsx = ''
+  if (!parks) {
+    parksJsx = 'loading...'
+  } else {
+    parksJsx = parks.map(park => (
+      <li key={park.Name}>
+        {park.Name}
+      </li>
+      // console.log('parkname ', park.Name)
+      // console.log('parklocation ', park.Location)
+    ))
+    console.log('parks are ', parks)
+  }
+
   return (
     <div>
       <h3>All U.S. National Parks:</h3>
-      <p>{parks.name}</p>
-      <p>{parks.location}</p>
+      <ul>
+        {parksJsx}
+      </ul>
+      { /* // <p>{parks.name}</p>
+      // <p>{parks.location}</p> */}
     </div>
   )
 }
