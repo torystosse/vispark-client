@@ -31,9 +31,16 @@ const Parks = props => {
     parksJsx = 'loading...'
   } else {
     parksJsx = parks.map(park => (
-      <li key={park.Name}>
-        {park.Name}
-      </li>
+      <div key={park.Name}>
+        <p>{park.Name}</p>
+        <img src={park.Thumbnail}/>
+        <li>Location: {park.Location}</li>
+        <li>Est. {park.Established}</li>
+        <li>Area: {park.Area}</li>
+        <li>Recreation Visitors: {park['Recreation visitors']}</li>
+        <li>{park.Description}</li>
+        <br />
+      </div>
       // console.log('parkname ', park.Name)
       // console.log('parklocation ', park.Location)
     ))
