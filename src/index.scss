@@ -1,1 +1,50 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background-color: rgba(51, 102, 0, .05);
+  margin: 0 auto;
+}
+
+h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+}
+
+li {
+  font-family: 'Source Sans Pro', sans-serif;
+  list-style-type: none;
+  padding: 1px 6px;
+  margin: 1px;
+}
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  margin: 20px;
+}
+
+.mountain-image {
+  height: 60px;
+  width: 95px;
+}
+
+.nav-bar {
+  background-color: rgba(34, 71, 17, .85);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .6);
+  font-family: 'Gotu', sans-serif;
+}
+
+.park-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.park-data {
+  flex: 0 1 auto;
+}
