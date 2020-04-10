@@ -11,7 +11,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar variant="dark" expand="md" className="nav-bar">
     <img src='http://clipart-library.com/images_k/mountain-clipart-transparent-background/mountain-clipart-transparent-background-14.png' className="mountain-image" />
-    <Navbar.Brand href="#">
+    <Navbar.Brand>
       Vispark
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
