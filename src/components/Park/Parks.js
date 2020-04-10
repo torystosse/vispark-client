@@ -24,36 +24,30 @@ const Parks = props => {
 
   // note, all park fields must be capitalized => caps in JSON data
   // 'recreation visitors' has a space in JSON data, must use bracket notation
-  let parksJsx = ''
-  if (!parks) {
-    parksJsx = 'loading...'
-  } else {
-    // map through each park in the JSON file, and display all with below fields
-    parksJsx = parks.map(park => (
-      <Col key={park.Name} lg={4} className="park-data">
-        <h5>{park.Name}</h5>
-        <img src={park.Thumbnail}/>
-        <li>Location: {park.Location}</li>
-        <li>Est. {park.Established}</li>
-        <li>Area: {park.Area}</li>
-        <li>Recreation Visitors: {park['Recreation visitors']}</li>
-        <br />
-        <p>{park.Description}</p>
-        <br />
-        <br />
-      </Col>
-    ))
-  }
 
   return (
     <div>
       <h2 className="header">All U.S. National Parks:</h2>
       <div className="park-container">
-        <Container className="park-container">
-          <Row>
-            {parksJsx}
-          </Row>
-        </Container>
+        {!parks ? 'loading...'
+          : <Container>
+            <Row>
+              {parks.map(park => (
+                <Col key={park.name} lg={4} className="park-data">
+                  <h5>{park.Name}</h5>
+                  <img src={park.Thumbnail}/>
+                  <li>Location: {park.Location}</li>
+                  <li>Est. {park.Established}</li>
+                  <li>Area: {park.Area}</li>
+                  <li>Recreation Visitors: {park['Recreation visitors']}</li>
+                  <br />
+                  <p>{park.Description}</p>
+                  <br />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        }
       </div>
     </div>
   )
