@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Button, Modal } from 'react-bootstrap'
 
+// note: this file is still in progress, and is not being used.
+// goal will be to create modal to display full data on each park
+
 const Parks = props => {
   const [parks, setParks] = useState([])
-  // const [currentPark setCurrentPark] = useState({})
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -15,7 +17,6 @@ const Parks = props => {
       url: 'https://prm-interview.s3.amazonaws.com/parks.json',
       method: 'GET'
     })
-      // .then(res => console.log(res.data))
       .then(res => setParks(res.data))
       .catch(() => {
         props.alert({
@@ -25,11 +26,6 @@ const Parks = props => {
         })
       })
   }, [])
-
-  // const parksObject = parks
-  // console.log('parksObject', parksObject)
-
-  // note, all fields must be CAPITALIZED bc are caps in db
 
   const parkInfo = parks.map(park => (
     <div key={park.Name}>
@@ -54,9 +50,7 @@ const Parks = props => {
         </Button>
         <br />
       </div>
-      // console.log('parkname ', park.Name)
     ))
-    // console.log('parks are ', parks)
   }
 
   return (
@@ -65,8 +59,6 @@ const Parks = props => {
       <ul>
         {parksJsx}
       </ul>
-      { /* // <p>{parks.name}</p>
-      // <p>{parks.location}</p> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{parksJsx.Name}</Modal.Title>

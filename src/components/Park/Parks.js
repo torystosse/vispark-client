@@ -6,14 +6,12 @@ import Col from 'react-bootstrap/Col'
 
 const Parks = props => {
   const [parks, setParks] = useState([])
-  // const [currentPark setCurrentPark] = useState({})
 
   useEffect(() => {
     axios({
       url: 'https://prm-interview.s3.amazonaws.com/parks.json',
       method: 'GET'
     })
-      // .then(res => console.log(res.data))
       .then(res => setParks(res.data))
       .catch(() => {
         props.alert({
@@ -24,15 +22,13 @@ const Parks = props => {
       })
   }, [])
 
-  // const parksObject = parks
-  // console.log('parksObject', parksObject)
-
-  // note, all fields must be CAPITALIZED bc are caps in db
-
+  // note, all park fields must be capitalized => caps in JSON data
+  // 'recreation visitors' has a space in JSON data, must use bracket notation
   let parksJsx = ''
   if (!parks) {
     parksJsx = 'loading...'
   } else {
+    // map through each park in the JSON file, and display all with below fields
     parksJsx = parks.map(park => (
       <Col key={park.Name} lg={4} className="park-data">
         <h5>{park.Name}</h5>

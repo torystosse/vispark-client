@@ -5,6 +5,8 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Layout from '../Shared/Layout'
 
+// note: this file is not being used.
+
 const Park = props => {
   const [park, setPark] = useState(null)
 
